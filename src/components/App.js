@@ -51,7 +51,7 @@ function App() {
       </form>
 
       {/* pintar personajes */}
-  <CharacterList list={list}/>
+      <CharacterList list={list} />
     </main>
   );
 }
