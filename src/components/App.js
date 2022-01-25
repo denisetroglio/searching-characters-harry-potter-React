@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useState, UseEffect, useEffect } from "react";
 import "../styles/App.css";
-import herryPotter from "../datos/data.json";
+import getApiData from "../services/Api";
+import CharacterList from "./CharacterList";
 
 function App() {
-  const [harry, setHarry] = useState("");
+  const [list, setList] = useState("");
 
   /*Añadir personajes*/
-  const [photo, setPhoto] = useState("");
+  const [image, setImage] = useState("");
   const [name, setName] = useState("");
   const [species, setSpecies] = useState("");
+
+  useEffect(() => {
+    getApiData().then((listData) => {
+      setList(listData); //->guardar en la VE
+    });
+  }, []);
 
   return (
     <main className='main'>
@@ -16,9 +23,7 @@ function App() {
 
       {/* filtrar personajes */}
       <form className='new_character'>
-        <h2 className='character_title'>
-          Busque un personaje de la serie:
-        </h2>
+        <h2 className='character_title'>Busque un personaje de la serie:</h2>
         <input
           className='character'
           type='text'
@@ -29,7 +34,7 @@ function App() {
           value={name}
         />
         <label className='form_home' htmlFor='home'>
-          <h2 className="homeTitle">Selecciona la casa:</h2>
+          <h2 className='homeTitle'>Selecciona la casa:</h2>
         </label>
         <select
           className='form_home_text'
@@ -46,11 +51,7 @@ function App() {
       </form>
 
       {/* pintar personajes */}
-      <section>
-        <ul>
-          <li></li>
-        </ul>
-      </section>
+  <CharacterList list={list}/>
     </main>
   );
 }

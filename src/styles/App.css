@@ -14,6 +14,8 @@
   color: #d3a625;
   text-align: center;
   font-size: 32px;
+  font-family: 'Cinzel', serif;
+  padding: 15px;
 }
 
 .new_character{
@@ -23,35 +25,48 @@
   align-items: center;
   border: 3px solid #d3a625;
   margin: 15px;
-  padding: 30px;
-  border-radius: 30px;
+  padding: 15px;
+  
 }
 
 .character_title{
   color: #d3a625;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 10px;
   padding: 5px;
+  font-family: 'Cinzel', serif;
 }
 
 .character{
   width: 150px;
  text-align: center;
  font-size: 12px;
+ font-family: 'Cinzel', serif;
+ background-color: #cccccc;
+ font-weight: 600;
+ border: 2px solid #d3a625;
 }
 
 .homeTitle{
   color: #d3a625;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 10px;
   padding: 5px;
+  font-family: 'Cinzel', serif;
 }
 
 .form_home_text{
   width: 150px;
   text-align: center;
   font-size: 12px;
+  font-family: 'Cinzel', serif;
+  background-color: #cccccc;
+  font-weight: 600;
+  border: 2px solid #d3a625;
+  cursor: pointer;
 }
-
+.list{
+  list-style-type: none;
+}
