@@ -1,4 +1,11 @@
 const FilterHouse = (props) => {
+  const handleChange = (ev) => {
+    props.handleFilter({
+      key: "house",
+      value: ev.currentTarget.value,
+    });
+  };
+
   return (
     <>
       <label className='form_home' htmlFor='home'></label>
@@ -6,8 +13,8 @@ const FilterHouse = (props) => {
         className='form_home_text'
         name='home'
         id='home'
-      
-     
+        onChange={handleChange}
+        value={props.FilterHouse}
       >
         <option value='gryffindor'>Gryffindor</option>
         <option value='hufflepuff'>Hufflepuff</option>

@@ -11,16 +11,17 @@ function App() {
   /*Añadir personajes*/
 
   const [FilterName, setFilterName] = useState("");
-  const [FilterHouse, setFilterHouse] = useState("");
+  const [FilterHouse, setFilterHouse] = useState("gryffindor");
 
   useEffect(() => {
-    getApiData().then((listData) => {
+    getApiData(FilterHouse).then((listData) => {
       setList(listData); //->guardar en la VE
     });
-  }, []);
+  }, [FilterHouse]);
 
-  /*modifica la VE*/
+  /*Función manejadora de los filtros-modifica la VE*/
   const handleFilter = (data) => {
+    console.log(data);
     if (data.key === "name") {
       setFilterName(data.value);
     } else if (data.key === "house") {
@@ -40,7 +41,11 @@ function App() {
       {/* filtrar por HOUSE */}
 
       {/* Componnte que unifica todos los filtros */}
-      <Filters handleFilter={handleFilter} FilterName={FilterName} />
+      <Filters
+        handleFilter={handleFilter}
+        FilterName={FilterName}
+        FilterHouse={FilterHouse}
+      />
 
       {/* pintar personajes */}
       <CharacterList list={filteredCharacters} />
