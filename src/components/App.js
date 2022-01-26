@@ -1,10 +1,10 @@
-import { useState, UseEffect, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../styles/App.css";
 import getApiData from "../services/Api";
 import CharacterList from "./CharacterList";
 
 function App() {
-  const [list, setList] = useState("");
+  const [list, setList] = useState([]);
 
   /*Añadir personajes*/
   const [image, setImage] = useState("");
@@ -13,6 +13,7 @@ function App() {
 
   useEffect(() => {
     getApiData().then((listData) => {
+
       setList(listData); //->guardar en la VE
     });
   }, []);
@@ -30,8 +31,7 @@ function App() {
           name='name'
           id='name'
           placeholder='Harry Potter'
-          /*onChange={handleChangeName}*/
-          value={name}
+          /*onChange={handleSearchName}*/
         />
         <label className='form_home' htmlFor='home'>
           <h2 className='homeTitle'>Selecciona la casa:</h2>
@@ -41,7 +41,7 @@ function App() {
           name='home'
           id='home'
           /*onChange={handleChange}*/
-          /*value={props.filterGender}*/
+          /*value={props.filterHouse}*/
         >
           <option value='gryffindor'>Gryffindor</option>
           <option value='hufflepuff'>Hufflepuff</option>
