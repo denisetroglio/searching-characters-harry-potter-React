@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../styles/App.css";
+import hogwarts from "../images/hogwarts.jpg";
 import getApiData from "../services/Api";
 import CharacterList from "./CharacterList";
 import Filters from "./Filters";
@@ -8,10 +9,13 @@ function App() {
   /*Pintar personajes*/
   const [list, setList] = useState([]);
 
-  /*Añadir personajes*/
-
+  /*Filtrar personajes*/
   const [FilterName, setFilterName] = useState("");
-  const [FilterHouse, setFilterHouse] = useState("gryffindor");
+  const [FilterHouse, setFilterHouse] =
+    useState("gryffindor"); /*valor por defecto*/
+
+  /*Imagen*/
+  const [image, SetImage] = useState("");
 
   useEffect(() => {
     getApiData(FilterHouse).then((listData) => {
@@ -21,9 +25,10 @@ function App() {
 
   /*Función manejadora de los filtros-modifica la VE*/
   const handleFilter = (data) => {
-    console.log(data);
     if (data.key === "name") {
       setFilterName(data.value);
+    } else if (data.key === "xxx") {
+      setFilterName("No hay ningún personaje que coincida con la palabra XXX");
     } else if (data.key === "house") {
       setFilterHouse(data.value);
     }
@@ -32,6 +37,12 @@ function App() {
   const filteredCharacters = list.filter((list) => {
     return list.name.toLowerCase().includes(FilterName.toLowerCase());
   });
+  /*Sustituir imagen vazia*/
+  const handleImage = (img) => {
+    if (img === "") {
+      SetImage(`http://hp-api.herokuapp.com/images/${hogwarts}`);
+    }
+  };
 
   return (
     <main className='main'>
@@ -48,7 +59,11 @@ function App() {
       />
 
       {/* pintar personajes */}
-      <CharacterList list={filteredCharacters} />
+      <CharacterList
+        list={filteredCharacters}
+        handleImage={handleImage}
+        image={image}
+      />
     </main>
   );
 }
