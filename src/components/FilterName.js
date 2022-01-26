@@ -1,7 +1,10 @@
 function FilterName(props) {
-    const handleInput = (ev)=>{
-        props.handleFilterName(ev.currentTarget.value)
-    }
+  const handleInput = (ev) => {
+    props.handleFilter({
+      key: "name",
+      value: ev.currentTarget.value,
+    });
+  };
   return (
     <>
       <input
@@ -11,6 +14,7 @@ function FilterName(props) {
         id='name'
         placeholder='Harry Potter'
         onChange={handleInput}
+        value={props.FilterName} /*controlado*/
       />
     </>
   );

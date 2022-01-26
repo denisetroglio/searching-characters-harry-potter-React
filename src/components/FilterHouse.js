@@ -1,4 +1,4 @@
-const FilterHouse = () => {
+const FilterHouse = (props) => {
   return (
     <>
       <label className='form_home' htmlFor='home'></label>
@@ -6,8 +6,8 @@ const FilterHouse = () => {
         className='form_home_text'
         name='home'
         id='home'
-        /*onChange={handleChange}*/
-        /*value={props.filterHouse}*/
+      
+     
       >
         <option value='gryffindor'>Gryffindor</option>
         <option value='hufflepuff'>Hufflepuff</option>
