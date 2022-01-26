@@ -16,7 +16,7 @@
   font-size: 32px;
   font-family: "Cinzel", serif;
   padding: 15px;
-  text-shadow: 3px 2px #00155b;
+  text-shadow: 4px 4px #00155b;
 }
 
 .new_character {
@@ -44,6 +44,7 @@
   font-size: 12px;
   font-family: "Cinzel", serif;
   background-color: #cccccc;
+  color: #00155b;
   font-weight: 600;
   border: 2px solid #d3a625;
 }
@@ -63,6 +64,7 @@
   font-size: 12px;
   font-family: "Cinzel", serif;
   background-color: #cccccc;
+  color: #00155b;
   font-weight: 600;
   border: 2px solid #d3a625;
   cursor: pointer;
@@ -87,8 +89,9 @@
   object-fit: cover;
   border: 4px solid #d3a625;
   transition: linear 2s color;
+  cursor: pointer;
 }
-.card_img:hover{
+.card_img:hover {
   border: 4px solid #00155b;
 }
 
@@ -102,4 +105,32 @@
   font-family: "Cinzel", serif;
   color: #d3a625;
   font-size: 8px;
+}
+
+/*CharacterDetail*/
+
+.sectionDetails {
+  background-color: #00155b;
+  border: 4px solid #d3a625;
+}
+
+.back {
+  font-family: "Cinzel", serif;
+  color: #d3a625;
+  font-size: 14px;
+  transition: linear 2s color;
+  cursor: pointer;
+}
+
+.back:hover {
+  color: #00155b;
+}
+
+.titleDetail {
+  color: #d3a625;
+  text-align: center;
+  font-size: 32px;
+  font-family: "Cinzel", serif;
+  padding: 15px;
+  text-shadow: 4px 4px #00155b;
 }

@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
 import "../styles/App.css";
 import hogwarts from "../images/hogwarts.jpg";
 import getApiData from "../services/Api";
 import CharacterList from "./CharacterList";
 import Filters from "./Filters";
+import CharacterDetail from "./CharacterDetail";
 
 function App() {
   /*Pintar personajes*/
@@ -28,7 +30,7 @@ function App() {
     if (data.key === "name") {
       setFilterName(data.value);
     } else if (data.key === "xxx") {
-      setFilterName("No hay ningún personaje que coincida con la palabra XXX");
+      return "No hay ningún personaje que coincida con la palabra XXX";
     } else if (data.key === "house") {
       setFilterHouse(data.value);
     }
@@ -44,26 +46,44 @@ function App() {
     }
   };
 
+  const renderCharacterDetail = (props) => {
+    const routeName = props.match.params.characterName;
+
+    const findCharacter = list.find(
+      (character) => character.name === routeName
+    );
+    return <CharacterDetail character={findCharacter} />;
+  };
+
   return (
     <main className='main'>
       <h1 className='title'>Harry Potter</h1>
 
-      {/* filtrar personajes por NAME */}
-      {/* filtrar por HOUSE */}
+      <Switch>
+        <Route path='/' exact>
+          {/* filtrar personajes por NAME */}
+          {/* filtrar por HOUSE */}
 
-      {/* Componnte que unifica todos los filtros */}
-      <Filters
-        handleFilter={handleFilter}
-        FilterName={FilterName}
-        FilterHouse={FilterHouse}
-      />
+          {/* Componnte que unifica todos los filtros */}
+          <Filters
+            handleFilter={handleFilter}
+            FilterName={FilterName}
+            FilterHouse={FilterHouse}
+          />
 
-      {/* pintar personajes */}
-      <CharacterList
-        list={filteredCharacters}
-        handleImage={handleImage}
-        image={image}
-      />
+          {/* pintar personajes */}
+          <CharacterList
+            list={filteredCharacters}
+            handleImage={handleImage}
+            image={image}
+          />
+        </Route>
+
+        <Route
+          path='/character/:characterName'
+          render={renderCharacterDetail}
+        />
+      </Switch>
     </main>
   );
 }
