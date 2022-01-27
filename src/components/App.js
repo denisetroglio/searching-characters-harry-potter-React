@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import "../styles/App.css";
-import hogwarts from "../images/hogwarts.jpg";
 import getApiData from "../services/Api";
 import CharacterList from "./CharacterList";
 import Filters from "./Filters";
@@ -16,8 +15,6 @@ function App() {
   const [FilterHouse, setFilterHouse] =
     useState("gryffindor"); /*valor por defecto*/
 
-  /*Imagen*/
-  const [image, SetImage] = useState("");
 
   useEffect(() => {
     getApiData(FilterHouse).then((listData) => {
@@ -29,8 +26,6 @@ function App() {
   const handleFilter = (data) => {
     if (data.key === "name") {
       setFilterName(data.value);
-    } else if (data.key === "xxx") {
-      return "No hay ningún personaje que coincida con la palabra XXX";
     } else if (data.key === "house") {
       setFilterHouse(data.value);
     }
@@ -39,12 +34,7 @@ function App() {
   const filteredCharacters = list.filter((list) => {
     return list.name.toLowerCase().includes(FilterName.toLowerCase());
   });
-  /*Sustituir imagen vazia*/
-  const handleImage = (img) => {
-    if (img === "") {
-      SetImage(`http://hp-api.herokuapp.com/images/${hogwarts}`);
-    }
-  };
+
 
   const renderCharacterDetail = (props) => {
     const routeName = props.match.params.characterName;
@@ -52,11 +42,17 @@ function App() {
     const findCharacter = list.find(
       (character) => character.name === routeName
     );
-    return <CharacterDetail character={findCharacter} />;
+    if (findCharacter === undefined) {
+      return "personaje no encontrado";
+    } else {
+      return <CharacterDetail character={findCharacter} />;
+    }
   };
 
   return (
     <main className='main'>
+      <span className='copyright'>ⒸDenise Overbeck Troglio</span>
+
       <h1 className='title'>Harry Potter</h1>
 
       <Switch>
@@ -72,11 +68,7 @@ function App() {
           />
 
           {/* pintar personajes */}
-          <CharacterList
-            list={filteredCharacters}
-            handleImage={handleImage}
-            image={image}
-          />
+          <CharacterList list={filteredCharacters} />
         </Route>
 
         <Route

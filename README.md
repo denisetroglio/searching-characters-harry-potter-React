@@ -1,2 +1,1 @@
-# Harry Potter Characters 
-
+# Harry Potter Characters
