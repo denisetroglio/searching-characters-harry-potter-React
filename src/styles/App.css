@@ -16,7 +16,7 @@
 }
 
 .title {
-  color: #c2bcb1;
+  color: #d3a625;
   text-align: center;
   font-size: 70px;
   font-family: "HARRYP", serif;
@@ -135,38 +135,49 @@
   transform: translateY(-20px);
 }
 
+.btn_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .back {
   font-family: "Cinzel", serif;
   color: #d3a625;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   transition: linear 2s color;
   cursor: pointer;
   text-align: center;
   margin: 15px;
   text-decoration: none;
+  border: solid 3px #d3a625;
+  background-color: #740001;
+  width: 80px;
+  height: 30px;
 }
 
 .back:hover {
-  color: #740001;
+  background-color: #033607;
 }
 
 .titleDetail {
   color: #d3a625;
   text-align: center;
-  font-size: 22px;
+  font-size: 24px;
   font-family: "Cinzel", serif;
   padding: 20px;
 }
 
-.details_photo{
+.details_photo {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.details{
+.details {
   margin: 15px;
   display: flex;
   flex-direction: column;
@@ -174,69 +185,138 @@
   align-items: center;
 }
 
-.card_img_detail{
+.card_img_detail {
   position: relative;
   width: 200px;
   height: 270px;
   object-fit: cover;
   border: 4px solid #d3a625;
-
 }
-.name_CharacterDetail{
+.name_CharacterDetail {
   font-family: "Cinzel", serif;
   color: #d3a625;
   font-size: 16px;
   margin: 5px;
 }
 
-.specie_detail{
+.specie_detail {
   font-family: "Cinzel", serif;
   color: #d3a625;
   font-size: 14px;
   margin: 3px;
 }
 
-.gender_detail{
+.gender_detail {
   font-family: "Cinzel", serif;
   color: #d3a625;
   font-size: 14px;
   margin: 3px;
 }
 
-.alive_detail{
+.alive_detail {
   font-family: "Cinzel", serif;
   color: #d3a625;
   font-size: 14px;
   margin: 3px;
 }
 
-.birth_detail{
+.birth_detail {
   font-family: "Cinzel", serif;
   color: #d3a625;
   font-size: 14px;
   margin: 3px;
 }
 
-.house_detail{
+.house_detail {
   font-family: "Cinzel", serif;
   color: #d3a625;
   font-size: 14px;
   margin: 3px;
 }
 
-.btn_reset{
+.btn_reset {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.delete{
+.delete {
   font-family: "Cinzel", serif;
-  font-size:14px;
+  font-size: 14px;
   background-color: #00155b;
   color: #d3a625;
   margin: 10px;
   padding: 3px;
   font-weight: 600;
+}
+
+@media all and (min-width: 768px) {
+  .new_character {
+    padding: 20px;
+  }
+  .character_title {
+    font-size: 18px;
+  }
+  .character {
+    font-size: 14px;
+  }
+  .homeTitle {
+    font-size: 18px;
+  }
+  .form_home_text {
+    font-size: 14px;
+  }
+  .delete {
+    font-size: 18px;
+  }
+  .list_characters {
+    margin: 25px 25px 0 25px;
+    padding: 15px;
+  }
+  .back {
+    font-size: 18px;
+  }
+  .sectionDetails {
+    height: 100vh;
+  }
+  .specie {
+    font-size: 9px;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  .copyright {
+    font-size: 9px;
+  }
+  .title {
+    font-size: 90px;
+  }
+  .character_title {
+    font-size: 22px;
+  }
+  .character {
+    font-size: 18px;
+    width: 280px;
+  }
+  .homeTitle {
+    font-size: 22px;
+  }
+  .form_home_text {
+    font-size: 18px;
+    width: 280px;
+  }
+  .delete {
+    font-size: 20px;
+  }
+  .card_img {
+    width: 180px;
+    height: 280px;
+  }
+  .name_Character {
+    font-size: 15px;
+  }
+  .specie {
+    font-size: 15px;
+  }
 }

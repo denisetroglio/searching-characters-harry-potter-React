@@ -12,9 +12,10 @@ function CharacterDetail(props) {
   return (
     <>
       <section className='sectionDetails'>
+        <div className="btn_section">
         <Link className='back' to='/'>
           Volver
-        </Link>
+        </Link></div>
         <h2 className='titleDetail'>Detalle del personaje</h2>
         <section className='details_photo'>
           <img
@@ -25,7 +26,7 @@ function CharacterDetail(props) {
         </section>
         <section className='details'>
           <h4 className='name_CharacterDetail'>
-            Nombre:{props.character.name}
+          {props.character.name}
           </h4>
           <p className='specie_detail'>Especie:{props.character.species}</p>
           <p className='gender_detail'>
