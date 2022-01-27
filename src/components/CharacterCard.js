@@ -3,8 +3,10 @@ import hogwarts from "../images/hogwarts.jpg";
 
 const CharacterCard = (props) => {
   const GetImage = (image) =>{
-    if (props.listItem.image === ""){
+    if (image === ""){
       return hogwarts;
+    } else{
+      return props.listItem.image;
     }
   };
 
@@ -12,7 +14,7 @@ const CharacterCard = (props) => {
     <Link className="link" to={`/character/${props.listItem.name}`}>
       <img
         className='card_img'
-        src={props.listItem.image}
+        src={GetImage(props.listItem.image)}
               alt={`Foto de ${props.listItem.name}`}
       />
       <h4 className='name_Character'>{props.listItem.name}</h4>

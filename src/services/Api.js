@@ -7,6 +7,11 @@ const getApiData = (houseFilter) => {
           image: list.image,
           name: list.name,
           species: list.species,
+          gender:list.gender,
+          alive:list.alive,
+          eyeColour:list.eyeColour,
+          dateOfBirth:list.dateOfBirth,
+          house:list.house,
         };
       });
       return dataList;

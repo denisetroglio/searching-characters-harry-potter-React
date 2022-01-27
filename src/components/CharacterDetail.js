@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
+import hogwarts from "../images/hogwarts.jpg";
 
 function CharacterDetail(props) {
+  const GetImage = (image) =>{
+    if (image === ""){
+      return hogwarts;
+    } else{
+      return props.character.image;
+    }
+  };
   return (
     <>
       <section className='sectionDetails'>
@@ -11,7 +19,7 @@ function CharacterDetail(props) {
         <section className='details_photo'>
           <img
             className='card_img_detail'
-            src={props.character.image}
+            src={GetImage(props.character.image)}
             alt={`Foto de ${props.character.name}`}
           />
         </section>
@@ -23,8 +31,10 @@ function CharacterDetail(props) {
           <p className='gender_detail'>
             Genero:{props.character.gender === "female" ? "Mujer" : "Hombre"}
           </p>
-          <p className='alive_detail'>Estatus: {props.character.alive === "true"? "Vivo(a)":"Muerto(a)"}</p>
-          <p className='alive_detail'>Color ojos:{props.character.eyeColour}</p>
+          <p className='alive_detail'>Estatus: {props.character.alive === true? "Vivo(a)":"Muerto(a)"}</p>
+          <p className='alive_detail'>Color Ojos:{props.character.eyeColour}</p>
+          <p className='birth_detail'>Nacimiento:{props.character.dateOfBirth}</p>
+          <p className='house_detail'>Casa:{props.character.house}</p>
         </section>
       </section>
     </>

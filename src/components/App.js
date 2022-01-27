@@ -15,7 +15,6 @@ function App() {
   const [FilterHouse, setFilterHouse] =
     useState("gryffindor"); /*valor por defecto*/
 
-
   useEffect(() => {
     getApiData(FilterHouse).then((listData) => {
       setList(listData); //->guardar en la VE
@@ -35,7 +34,6 @@ function App() {
     return list.name.toLowerCase().includes(FilterName.toLowerCase());
   });
 
-
   const renderCharacterDetail = (props) => {
     const routeName = props.match.params.characterName;
 
@@ -47,6 +45,11 @@ function App() {
     } else {
       return <CharacterDetail character={findCharacter} />;
     }
+  };
+  /*Botón de deletar búsqueda*/
+  const handleDelete = () => {
+    setFilterName("");
+    setFilterHouse("gryffindor");
   };
 
   return (
@@ -66,6 +69,14 @@ function App() {
             FilterName={FilterName}
             FilterHouse={FilterHouse}
           />
+          <div className='btn_reset'>
+            <input
+              className='delete'
+              type='reset'
+              value='limpiar búsqueda'
+              onClick={handleDelete}
+            />
+          </div>
 
           {/* pintar personajes */}
           <CharacterList list={filteredCharacters} />
