@@ -5,6 +5,7 @@ import getApiData from "../services/Api";
 import CharacterList from "./CharacterList";
 import Filters from "./Filters";
 import CharacterDetail from "./CharacterDetail";
+import Species from "./Species";
 
 function App() {
   /*Pintar personajes*/
@@ -14,7 +15,9 @@ function App() {
   const [FilterName, setFilterName] = useState("");
   const [FilterHouse, setFilterHouse] =
     useState("gryffindor"); /*valor por defecto*/
+  const [Species, setSpecies] = useState("");
 
+  /*llama el fetch*/
   useEffect(() => {
     getApiData(FilterHouse).then((listData) => {
       setList(listData); //->guardar en la VE
@@ -27,11 +30,17 @@ function App() {
       setFilterName(data.value);
     } else if (data.key === "house") {
       setFilterHouse(data.value);
+    } else if (data.key === "specie") {
+      setSpecies(data.value);
     }
   };
 
   const filteredCharacters = list.filter((list) => {
-    return list.name.toLowerCase().includes(FilterName.toLowerCase());
+    return list.name
+      .toLowerCase()
+      .includes(FilterName.toLowerCase())})
+      .filter((list) => {
+        return list.species.toLowerCase().includes(Species.toLowerCase()); 
   });
 
   const renderCharacterDetail = (props) => {
@@ -50,6 +59,7 @@ function App() {
   const handleDelete = () => {
     setFilterName("");
     setFilterHouse("gryffindor");
+    setSpecies("");
   };
 
   return (
