@@ -6,6 +6,7 @@ import CharacterList from "./CharacterList";
 import Filters from "./Filters";
 import CharacterDetail from "./CharacterDetail";
 
+
 function App() {
   /*Pintar personajes*/
   const [list, setList] = useState([]);
@@ -14,7 +15,9 @@ function App() {
   const [FilterName, setFilterName] = useState("");
   const [FilterHouse, setFilterHouse] =
     useState("gryffindor"); /*valor por defecto*/
+  const [Species, setSpecies] = useState("");
 
+  /*llama el fetch*/
   useEffect(() => {
     getApiData(FilterHouse).then((listData) => {
       setList(listData); //->guardar en la VE
@@ -27,11 +30,17 @@ function App() {
       setFilterName(data.value);
     } else if (data.key === "house") {
       setFilterHouse(data.value);
+    } else if (data.key === "specie") {
+      setSpecies(data.value);
     }
   };
 
   const filteredCharacters = list.filter((list) => {
-    return list.name.toLowerCase().includes(FilterName.toLowerCase());
+    return list.name
+      .toLowerCase()
+      .includes(FilterName.toLowerCase())})
+      .filter((list) => {
+        return list.species.toLowerCase().includes(Species.toLowerCase()); 
   });
 
   const renderCharacterDetail = (props) => {
@@ -50,6 +59,7 @@ function App() {
   const handleDelete = () => {
     setFilterName("");
     setFilterHouse("gryffindor");
+    setSpecies("");
   };
 
   return (
@@ -68,6 +78,7 @@ function App() {
             handleFilter={handleFilter}
             FilterName={FilterName}
             FilterHouse={FilterHouse}
+            Species={Species}
           />
           <div className='btn_reset'>
             <input
