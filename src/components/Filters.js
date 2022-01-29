@@ -20,7 +20,12 @@ const Filters = (props) => {
         FilterHouse={props.FilterHouse}
         handleFilter={props.handleFilter}
       />
-      <Specie Specie={props.Specie} handleFilter={props.handleFilter} />
+      <h2 className='titleSpecies'>
+        <i className='fas fa-quidditch'></i>Busque por una especie:
+        <p className="subt_species"> (Werewolf,
+        Half-giant, Ghost o Human)</p>
+      </h2>
+      <Specie Species={props.Species} handleFilter={props.handleFilter} />
     </form>
   );
 };

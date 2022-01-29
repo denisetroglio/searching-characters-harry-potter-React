@@ -5,7 +5,7 @@ import getApiData from "../services/Api";
 import CharacterList from "./CharacterList";
 import Filters from "./Filters";
 import CharacterDetail from "./CharacterDetail";
-import Species from "./Species";
+
 
 function App() {
   /*Pintar personajes*/
@@ -78,6 +78,7 @@ function App() {
             handleFilter={handleFilter}
             FilterName={FilterName}
             FilterHouse={FilterHouse}
+            Species={Species}
           />
           <div className='btn_reset'>
             <input

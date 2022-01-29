@@ -7,13 +7,13 @@ function Species(props) {
   return (
     <>
       <input
-        className='specie'
+        className='specie_input'
         type='text'
         name='specie'
         id='specie'
         placeholder='Specie'
         onChange={handleInputSpecie}
-        value={props.Specie} /*controlado*/
+        value={props.Species} /*controlado*/
       />
     </>
   );

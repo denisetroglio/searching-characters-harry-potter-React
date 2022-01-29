@@ -31,9 +31,9 @@
   margin: 15px;
 }
 
-.fas{
-color: #d3a625;
-margin: 5px;
+.fas {
+  color: #d3a625;
+  margin: 5px;
 }
 
 .new_character {
@@ -121,7 +121,33 @@ margin: 5px;
 .specie {
   font-family: "Cinzel", serif;
   color: #d3a625;
+  font-size: 9px;
+}
+.titleSpecies {
+  color: #d3a625;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 5px;
+  font-family: "Cinzel", serif;
+}
+
+.subt_species {
+  color: #d3a625;
+  text-align: center;
   font-size: 8px;
+  font-family: "Cinzel", serif;
+}
+
+.specie_input {
+  width: 150px;
+  text-align: center;
+  font-size: 12px;
+  font-family: "Cinzel", serif;
+  background-color: #cccccc;
+  color: #00155b;
+  font-weight: 600;
+  border: 2px solid #d3a625;
 }
 
 /*CharacterDetail*/
@@ -131,12 +157,13 @@ margin: 5px;
 }
 
 .sectionDetails {
-  background-color: #00155b;
-  border: 4px solid #d3a625;
+  /*background: linear-gradient(to bottom right, black, #00155b);*/
+  background-image: url("../images/background_hp.jpg");
   margin: 15px 15px 0 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   transform: translateY(-20px);
 }
 
@@ -151,15 +178,16 @@ margin: 5px;
   font-family: "Cinzel", serif;
   color: #d3a625;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 900;
   transition: linear 2s color;
   cursor: pointer;
   text-align: center;
+  align-items: center;
   margin: 15px;
   text-decoration: none;
   border: solid 3px #d3a625;
   background-color: #740001;
-  width: 80px;
+  width: 90px;
   height: 30px;
 }
 
@@ -168,7 +196,9 @@ margin: 5px;
 }
 
 .titleDetail {
-  color: #d3a625;
+  color: #cccccc;
+  text-shadow: #cccccc 0.1em 0.1em 0.2em;
+  font-weight: 900;
   text-align: center;
   font-size: 24px;
   font-family: "Cinzel", serif;
@@ -199,43 +229,49 @@ margin: 5px;
 }
 .name_CharacterDetail {
   font-family: "Cinzel", serif;
-  color: #d3a625;
-  font-size: 16px;
+  color: white;
+  font-size: 20px;
+  font-weight: 900;
   margin: 5px;
 }
 
 .specie_detail {
   font-family: "Cinzel", serif;
-  color: #d3a625;
-  font-size: 14px;
+  color: #cccccc;
+  font-size: 16px;
+  font-weight: 700;
   margin: 3px;
 }
 
 .gender_detail {
   font-family: "Cinzel", serif;
-  color: #d3a625;
-  font-size: 14px;
+  color: #cccccc;
+  font-size: 16px;
+  font-weight: 700;
   margin: 3px;
 }
 
 .alive_detail {
   font-family: "Cinzel", serif;
-  color: #d3a625;
-  font-size: 14px;
+  color: #cccccc;
+  font-size: 16px;
+  font-weight: 700;
   margin: 3px;
 }
 
 .birth_detail {
   font-family: "Cinzel", serif;
-  color: #d3a625;
-  font-size: 14px;
+  color: #cccccc;
+  font-size: 16px;
+  font-weight: 700;
   margin: 3px;
 }
 
 .house_detail {
   font-family: "Cinzel", serif;
-  color: #d3a625;
-  font-size: 14px;
+  color: #cccccc;
+  font-size: 16px;
+  font-weight: 700;
   margin: 3px;
 }
 
@@ -255,6 +291,10 @@ margin: 5px;
   padding: 3px;
   font-weight: 600;
   cursor: pointer;
+  transition: linear 2s color;
+}
+.delete:hover {
+  background-color: #033607;
 }
 
 @media all and (min-width: 768px) {
@@ -262,7 +302,7 @@ margin: 5px;
     padding: 20px;
   }
   .character_title {
-    font-size: 18px;
+    font-size: 26px;
   }
   .character {
     font-size: 14px;
@@ -289,6 +329,16 @@ margin: 5px;
   .specie {
     font-size: 9px;
   }
+  .titleSpecies {
+    font-size: 18px;
+  }
+  .subt_species {
+    font-size: 12px;
+  }
+
+  .specie_input {
+    font-size: 14px;
+  }
 }
 
 @media all and (min-width: 1200px) {
@@ -299,7 +349,7 @@ margin: 5px;
     font-size: 90px;
   }
   .character_title {
-    font-size: 22px;
+    font-size: 30px;
   }
   .character {
     font-size: 18px;
@@ -319,10 +369,26 @@ margin: 5px;
     width: 180px;
     height: 280px;
   }
+  .card_img_detail {
+    width: 260px;
+    height: 360px;
+  }
+
   .name_Character {
     font-size: 15px;
   }
   .specie {
     font-size: 15px;
+  }
+  .titleSpecies {
+    font-size: 22px;
+  }
+
+  .specie_input {
+    font-size: 18px;
+    width: 280px;
+  }
+  .subt_species {
+    font-size: 14px;
   }
 }
